@@ -1,5 +1,7 @@
 package com.clientesapi.rest;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import com.clientesapi.model.entity.Cliente;
@@ -23,6 +25,11 @@ import org.springframework.web.server.ResponseStatusException;
 @RequestMapping("/api/clientes")
 @CrossOrigin("http://localhost:4200")
 public class ClienteController {
+
+    @GetMapping
+    public List<Cliente> obterTodas(){
+        return repository.findAll();
+    }
     
     private final ClienteRepository repository;
 
